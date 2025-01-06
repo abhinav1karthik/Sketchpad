@@ -9,7 +9,6 @@ for (let i = 1; i <= squaresPerRow * squaresPerRow; i++) {
   let divWidth = 640 / squaresPerRow;
   mydiv.style.width = `${divWidth}px`;
   mydiv.style.height = `${divWidth}px`;
-  mydiv.textContent = `A`;
 }
 
 function updateGrid(newsquaresPerRow) {
@@ -24,21 +23,40 @@ function updateGrid(newsquaresPerRow) {
     let divWidth = 640 / newsquaresPerRow;
     mydiv.style.width = `${divWidth}px`;
     mydiv.style.height = `${divWidth}px`;
-    mydiv.textContent = `A`;
+    mydiv.addEventListener("mouseenter", () => {
+      mydiv.style.backgroundColor = getRandomColor();
+    });
   }
 }
+
+const mydivList = document.querySelectorAll(".sketchElement");
+
+function getRandomColor() {
+  let red = Math.floor(Math.random() * 255);
+  let green = Math.floor(Math.random() * 255);
+  let blue = Math.floor(Math.random() * 255);
+  return `rgb(${red},${green},${blue})`;
+}
+mydivList.forEach((mydivi) => {
+  mydivi.addEventListener("mouseenter", () => {
+    mydivi.style.backgroundColor = getRandomColor();
+  });
+});
 
 const myButton = document.querySelector(".submit");
 const myInput = document.querySelector(".input");
 
 myButton.addEventListener("click", (event) => {
   let newsquaresPerRow = myInput.value;
-  if (!isNaN(newsquaresPerRow) && newsquaresPerRow !== "") {
+  if (
+    !isNaN(newsquaresPerRow) &&
+    newsquaresPerRow !== "" &&
+    newsquaresPerRow >= 1 &&
+    newsquaresPerRow <= 100
+  ) {
     console.log(newsquaresPerRow);
     updateGrid(newsquaresPerRow);
   } else {
-    alert("Input a Number Only!");
+    alert("Input a Number(1-100) Only! ");
   }
 });
-
-const mydivList = document.querySelectorAll(".sketchElement");

@@ -8,7 +8,7 @@
 .container {
   width: 640px;
   height: 640px;
-  border: 5px solid blue;
+  border: 10px solid red;
   display: flex;
   flex-wrap: wrap;
 }
@@ -21,7 +21,7 @@
 }
 
 .sketchElement {
-  background-color: red;
+  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
