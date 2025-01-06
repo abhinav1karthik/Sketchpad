@@ -1,0 +1,27 @@
+.sketchPad {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 640px;
+  height: 640px;
+  border: 5px solid blue;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.query {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 5px;
+}
+
+.sketchElement {
+  background-color: aqua;
+  flex-grow: 1;
+  flex-shrink: 1;
+}
